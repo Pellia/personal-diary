@@ -1,5 +1,11 @@
+import Add from "./components/Add";
+
 function App() {
-    return <h1>Personal Diary</h1>;
+    return (
+        <div>
+            <Add />
+        </div>
+    );
 }
 
 export default App;
