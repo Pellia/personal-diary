@@ -1,5 +1,23 @@
+import Add from "./components/Add";
+import AddCard from "./components/AddCard";
+import Entry from "./components/Entry";
+import ViewCard from "./components/ViewCard";
+
 function App() {
-    return <h1>Personal Diary</h1>;
+    return (
+        <div>
+            <Add />
+            <AddCard />
+            <ViewCard />
+            <Entry />
+            <Entry />
+            <Entry />
+            <Entry />
+            <Entry />
+            <Entry />
+            <Entry />
+        </div>
+    );
 }
 
 export default App;
