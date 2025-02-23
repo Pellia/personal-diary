@@ -1,11 +1,13 @@
 const AddCard = ({ setShowAddCard }) => {
     // Close Add Card Modal
-    const handleShowAddCard = () => {
-        setShowAddCard(false);
+    const handleShowAddCard = (e) => {
+        if (e.target.id === "background") {
+            setShowAddCard(false);
+        }
     };
 
     return (
-        <div onClick={handleShowAddCard} className="bg-black/90 bg-opacity-15 fixed top-0 right-0 left-0 bottom-0 z-50 w-full">
+        <div onClick={handleShowAddCard} className="bg-black/90 bg-opacity-15 fixed top-0 right-0 left-0 bottom-0 z-50 w-full" id="background">
             <div className="absolute top-[20%] left-0 right-0 bg-neutral-300 border border-neutral-400 max-w-2xl mx-auto p-2 rounded">
                 <form className="flex gap-2 flex-col " action="">
                     {/* Title */}
