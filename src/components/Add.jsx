@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AddCard from "./modal/AddCard";
 
-const Add = () => {
+const Add = ({ setStorage }) => {
     const [showAddCard, setShowAddCard] = useState(false);
 
     // Show Add Card Modal
@@ -16,7 +16,7 @@ const Add = () => {
                     New Entry
                 </button>
             </div>
-            {showAddCard && <AddCard setShowAddCard={setShowAddCard} />}
+            {showAddCard && <AddCard setShowAddCard={setShowAddCard} setStorage={setStorage} />}
         </>
     );
 };

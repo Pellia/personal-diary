@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddCard = ({ setShowAddCard }) => {
+const AddCard = ({ setShowAddCard, setStorage }) => {
     const [inputValue, setInputValue] = useState({});
 
     // Close Add Card Modal
@@ -11,10 +11,13 @@ const AddCard = ({ setShowAddCard }) => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const previousData = JSON.parse(localStorage.getItem("entries")) || [];
         localStorage.setItem("entries", JSON.stringify([inputValue, ...previousData]));
+        // console.log(JSON.stringify(newData));
         setShowAddCard(false);
+        setStorage(JSON.parse(localStorage.getItem("entries")) || []);
+
         // console.log(inputValue);
         // console.log(previousData);
     };
