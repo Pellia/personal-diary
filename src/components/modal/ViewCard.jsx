@@ -13,11 +13,10 @@ const ViewCard = ({ setShowViewCard, data }) => {
                     <p>{data.date}</p>
                 </div>
                 <div className="flex gap-5 mb-2">
-                    <img className="border border-neutral-400 rounded-lg w-[200px]" src="https://picsum.photos/id/237/200/200" alt="" />
+                    <img className="border border-neutral-400 rounded-lg w-[200px]" src={data.image} alt="" />
                     <div>
                         <p>Content</p>
                         <p>{data.content}</p>
-                        <p>{data.image}</p>
                     </div>
                 </div>
                 <button className="bg-blue-500 rounded p-2 text-white font-bold text-md">Close</button>

@@ -1,4 +1,7 @@
+// Hooks
 import { useState } from "react";
+
+// Components
 import ViewCard from "./modal/ViewCard";
 
 const Entry = ({ data }) => {
@@ -9,19 +12,27 @@ const Entry = ({ data }) => {
         setShowViewCard(!showViewCard);
     };
 
+    // Slice Content for preview
+    const lessContent = data.content.slice(0, 350);
+
     return (
-        <div>
-            <div className="flex bg-neutral-300 max-w-2xl mx-auto mt-5 p-2 rounded border border-neutral-400 gap-4">
-                <img className="border border-neutral-400 rounded-lg" src="https://picsum.photos/id/237/200/200" alt="random-image" />
+        <div className="max-w-3xl my-8 flex justify-center mx-auto">
+            <div className="flex w-full bg-white mx-5 rounded-xl shadow-lg shadow-blue-100 gap-6">
+                <img className="w-50 object-cover aspect-2/3 rounded-bl-lg rounded-tl-xl" src={data.image} alt="random-image" />
                 <div>
-                    <p className="font-bold">{data.title}</p>
-                    <p className="font-bold">{data.date}</p>
-                    <button className="bg-blue-500 rounded p-2 text-white font-bold text-md" onClick={handleShowViewCard}>
-                        Show more...
-                    </button>
+                    <div className="flex justify-between flex-wrap items-center mr-5 mt-5">
+                        <p className="font-bold text-2xl">{data.title}</p>
+                        <p className="text-md text-gray-600">{data.date}</p>
+                    </div>
+                    <p className="mt-3 mr-5 text-md">{lessContent} ...</p>
+                    <div className="flex justify-end mt-12 mr-5 mb-5">
+                        <button className="text-blue-400 text-md underline hover:text-blue-500" onClick={handleShowViewCard}>
+                            Show more...
+                        </button>
+                    </div>
                 </div>
+                {showViewCard && <ViewCard setShowViewCard={setShowViewCard} data={data} />}
             </div>
-            {showViewCard && <ViewCard setShowViewCard={setShowViewCard} data={data} />}
         </div>
     );
 };
