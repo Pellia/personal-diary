@@ -1,8 +1,26 @@
-const Add = () => {
+// Hooks
+import { useState } from "react";
+
+// Components
+import AddCard from "./modal/AddCard";
+
+const Add = ({ setStorage }) => {
+    const [showAddCard, setShowAddCard] = useState(false);
+
+    // Show Add Card Modal
+    const handleShowAddCard = () => {
+        setShowAddCard(!showAddCard);
+    };
+
     return (
-        <div className="flex bg-neutral-300 max-w-2xl mx-auto mt-5 p-2 rounded border border-neutral-400 justify-end">
-            <button className="bg-blue-500 rounded p-2 text-white font-bold text-md">New Entry</button>
-        </div>
+        <>
+            <div className="max-w-3xl mt-5 flex justify-center mx-auto">
+                <button className="mt-5 w-full p-6 mx-5 bg-blue-400 text-white font-bold text-xl rounded-xl shadow-lg shadow-blue-200" onClick={handleShowAddCard}>
+                    New Entry
+                </button>
+            </div>
+            {showAddCard && <AddCard setShowAddCard={setShowAddCard} setStorage={setStorage} />}
+        </>
     );
 };
 

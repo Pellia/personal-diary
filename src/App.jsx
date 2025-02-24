@@ -1,22 +1,20 @@
+// Hooks
+import { useState } from "react";
+
+// Components
 import Add from "./components/Add";
-import AddCard from "./components/AddCard";
 import Entry from "./components/Entry";
-import ViewCard from "./components/ViewCard";
 
 function App() {
+    const [storage, setStorage] = useState(JSON.parse(localStorage.getItem("entries")) || []);
+
     return (
-        <div>
-            <Add />
-            <AddCard />
-            <ViewCard />
-            <Entry />
-            <Entry />
-            <Entry />
-            <Entry />
-            <Entry />
-            <Entry />
-            <Entry />
-        </div>
+        <>
+            <Add setStorage={setStorage} />
+            {storage.map((item, index) => (
+                <Entry key={index} data={item} />
+            ))}
+        </>
     );
 }
 
