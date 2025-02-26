@@ -25,7 +25,7 @@ const AddCard = ({ setShowAddCard, setStorage }) => {
     };
 
     return (
-        <div onClick={handleShowAddCard} className="bg-black/65 bg-opacity-15 fixed top-0 right-0 left-0 bottom-0 z-50 w-full" id="background">
+        <div onClick={handleShowAddCard} className="bg-black/65 fixed top-0 right-0 left-0 bottom-0 z-50 w-full" id="background">
             <div className="absolute top-[25%] left-0 right-0 bg-white border border-neutral-200 max-w-3xl mx-auto p-8 rounded-xl shadow-lg shadow-neutral-900">
                 {/* Form */}
                 <form className="flex gap-2 flex-col" action="" onSubmit={handleSubmit}>
@@ -57,7 +57,7 @@ const AddCard = ({ setShowAddCard, setStorage }) => {
 
                     {/* Buttons */}
                     <div className="flex justify-end gap-5">
-                        <button className="bg-red-400 rounded-xl p-2 w-36 text-white font-bold text-lg" type="submit" id="btn-close">
+                        <button onClick={handleShowAddCard} className="bg-red-400 rounded-xl p-2 w-36 text-white font-bold text-lg" type="submit" id="btn-close">
                             Close
                         </button>
                         <button className="bg-blue-500 rounded-xl p-2 w-36 text-white font-bold text-lg" type="submit">
