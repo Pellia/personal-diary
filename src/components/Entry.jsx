@@ -1,5 +1,7 @@
 // Hooks
 import { useState } from "react";
+
+// Components
 import ViewCard from "./modal/ViewCard";
 import AddCard from "./modal/AddCard";
 
@@ -10,9 +12,9 @@ const Entry = ({ data, index, setStorage }) => {
     // Delete Entry
     const handleDelete = () => {
         let entries = JSON.parse(localStorage.getItem("entries")) || [];
-        entries.splice(index, 1); 
+        entries.splice(index, 1);
         localStorage.setItem("entries", JSON.stringify(entries));
-        setStorage(entries); 
+        setStorage(entries);
     };
 
     return (
@@ -25,15 +27,23 @@ const Entry = ({ data, index, setStorage }) => {
                         <p className="text-md text-gray-600">{data.date}</p>
                     </div>
                     <p className="mt-3 mr-5 text-md">{data.content.slice(0, 350)} ...</p>
-                    
+
                     {/* Buttons */}
-                    <div className="flex justify-end mt-4 mr-5 mb-5 gap-3">
-                        <button className="text-blue-400 text-md underline hover:text-blue-500" onClick={() => setShowViewCard(true)}>Show more...</button>
-                        <button className="bg-purple-500 text-white px-3 py-1 rounded-md" onClick={() => setShowEditCard(true)}>Edit</button>
-                        <button className="bg-red-500 text-white px-3 py-1 rounded-md" onClick={handleDelete}>Delete</button>
+                    <div className="flex justify-between mt-4 mr-5 mb-5 gap-3">
+                        <div className="flex gap-2">
+                            <button className="bg-purple-400 font-bold text-white px-3 py-1 rounded-md cursor-pointer hover:bg-purple-500" onClick={() => setShowEditCard(true)}>
+                                Edit
+                            </button>
+                            <button className="bg-red-400 text-white px-3 py-1 rounded-md font-bold cursor-pointer hover:bg-red-500" onClick={handleDelete}>
+                                Delete
+                            </button>
+                        </div>
+                        <button className="text-blue-400 text-md underline hover:text-blue-500 cursor-pointer" onClick={() => setShowViewCard(true)}>
+                            Show more...
+                        </button>
                     </div>
                 </div>
-                
+
                 {showViewCard && <ViewCard setShowViewCard={setShowViewCard} data={data} />}
                 {showEditCard && <AddCard setShowAddCard={setShowEditCard} setStorage={setStorage} currentEntry={data} editIndex={index} />}
             </div>

@@ -16,7 +16,7 @@ const ViewCard = ({ setShowViewCard, data }) => {
                     </div>
                     <p className="mt-3 mr-5 text-md">{data.content}</p>
                     <div className="flex justify-end mt-12 mr-5 mb-5">
-                        <button onClick={handleShowViewCard} className="bg-blue-500 rounded-xl p-2 w-36 text-white font-bold text-lg" id="btn-close">
+                        <button onClick={handleShowViewCard} className="bg-blue-500 rounded-xl p-2 w-36 text-white font-bold text-lg cursor-pointer hover:bg-blue-600" id="btn-close">
                             Close
                         </button>
                     </div>

@@ -14,8 +14,8 @@ const Add = ({ setStorage }) => {
 
     return (
         <>
-            <div className="max-w-3xl mt-5 flex justify-center mx-auto">
-                <button className="mt-5 w-full p-6 mx-5 bg-blue-400 text-white font-bold text-xl rounded-xl shadow-lg shadow-blue-200" onClick={handleShowAddCard}>
+            <div className="max-w-3xl mt-3 flex justify-center mx-auto">
+                <button className="mt-5 w-full p-6 mx-5 bg-blue-400 text-white font-bold text-xl rounded-xl shadow-lg shadow-blue-200 cursor-pointer hover:bg-blue-500" onClick={handleShowAddCard}>
                     New Entry
                 </button>
             </div>
