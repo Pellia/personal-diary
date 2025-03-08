@@ -53,7 +53,9 @@ const AddCard = ({ setShowAddCard, setStorage, currentEntry = null, editIndex = 
                     <textarea onChange={handleChange} value={inputValue.content} className="border border-neutral-400 rounded-xl h-45 text-lg px-2" name="content" id="content" required></textarea>
 
                     <div className="flex justify-end gap-5">
+
                         <button onClick={handleShowAddCard} className="bg-red-400 rounded-xl p-2 w-36 text-white font-bold text-lg" type="button" id="btn-close">Close</button>
+
                         <button className="bg-blue-500 rounded-xl p-2 w-36 text-white font-bold text-lg" type="submit">
                             {editIndex !== null ? "Update" : "Add"}
                         </button>
